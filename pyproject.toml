@@ -1,7 +1,7 @@
 [project]
-name = "hamelnb"
+name = "persistent_jupyter"
 version = "0.1.0"
-description = "Add your description here"
+description = "Persistent live-kernel workflows for Jupyter notebooks"
 requires-python = ">=3.10"
 dependencies = [
     "jupyterlab>=4.4.10",

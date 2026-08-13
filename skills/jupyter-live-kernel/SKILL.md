@@ -1,9 +1,9 @@
 ---
-name: hamelnb
+name: persistent-jupyter
 description: Work against a live local Jupyter notebook kernel. Use this when an agent needs a Jupyter-like in-memory REPL, wants to inspect or edit a notebook while keeping the kernel alive, or needs an explicit verification pass at the end.
 ---
 
-# hamelnb
+# Persistent Jupyter
 
 Use this skill when a local notebook kernel already holds useful state and you do not want to rerun expensive setup.
 

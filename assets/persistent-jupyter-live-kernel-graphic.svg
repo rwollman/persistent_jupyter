@@ -37,7 +37,7 @@
     <text x="118" y="321" class="mono" fill="#9CC5A8" font-size="19">connected: demo.ipynb (port 8888)</text>
 
     <rect x="82" y="370" width="560" height="76" rx="18" fill="#101A24" stroke="#2A4052"/>
-    <text x="106" y="416" class="mono" fill="#F4EBDD" font-size="26" font-weight="700">/hamelnb make the final output 10</text>
+    <text x="106" y="416" class="mono" fill="#F4EBDD" font-size="26" font-weight="700">/persistent-jupyter make the final output 10</text>
 
     <circle cx="98" cy="508" r="5.5" fill="#7DD5FF"/>
     <text x="118" y="516" class="display" fill="#E7EEF5" font-size="25" font-weight="600">Done. Final output is 10.</text>

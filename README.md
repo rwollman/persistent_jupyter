@@ -1,15 +1,17 @@
-# hamelnb
+# persistent_jupyter
 
-[![Fast Tests](https://github.com/hamelsmu/hamelnb/actions/workflows/fast-tests.yml/badge.svg)](https://github.com/hamelsmu/hamelnb/actions/workflows/fast-tests.yml)
-[![Full Tests](https://github.com/hamelsmu/hamelnb/actions/workflows/full-tests.yml/badge.svg)](https://github.com/hamelsmu/hamelnb/actions/workflows/full-tests.yml)
+[![Fast Tests](https://github.com/rwollman/persistent_jupyter/actions/workflows/fast-tests.yml/badge.svg)](https://github.com/rwollman/persistent_jupyter/actions/workflows/fast-tests.yml)
+[![Full Tests](https://github.com/rwollman/persistent_jupyter/actions/workflows/full-tests.yml/badge.svg)](https://github.com/rwollman/persistent_jupyter/actions/workflows/full-tests.yml)
+
+This project is derived from [`hamelsmu/hamelnb`](https://github.com/hamelsmu/hamelnb). The fork keeps the upstream Git history while using a neutral project name.
 
 Coding agents write entire scripts in one shot, then debug from the top when something breaks. That works sometimes, but you might not always want to do it that way -- try a small piece, check the output, build up from there. Notebooks exist for exactly this reason.
 
-`hamelnb` gives your coding agent a live Jupyter notebook kernel. Instead of generating a 200-line script and hoping it works, the agent can explore an API interactively, check return values, fix one thing at a time, and build up working code cell by cell -- the same way you would.
+`persistent_jupyter` gives your coding agent a live Jupyter notebook kernel. Instead of generating a 200-line script and hoping it works, the agent can explore an API interactively, check return values, fix one thing at a time, and build up working code cell by cell -- the same way you would.
 
-![hamelnb graphic](assets/hamelnb-live-kernel-graphic.png)
+![persistent_jupyter graphic](assets/persistent-jupyter-live-kernel-graphic.svg)
 
-It works with Claude Code and Codex. In Claude Code, the standalone entrypoint is `/hamelnb`. If you load the repo as a Claude plugin, the plugin entrypoint is `/hamelnb:live-kernel`.
+It works with Claude Code and Codex. In Claude Code, the standalone entrypoint is `/persistent-jupyter`. If you load the repo as a Claude plugin, the plugin entrypoint is `/persistent_jupyter:live-kernel`.
 
 ## Use it when
 
@@ -39,9 +41,9 @@ In the Codex app, use the Skills UI to add or manage this skill.
 For a direct local install:
 
 ```bash
-git clone https://github.com/hamelsmu/hamelnb.git ~/.agent-skills/hamelnb
+git clone https://github.com/rwollman/persistent_jupyter.git ~/.agent-skills/persistent_jupyter
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-ln -s ~/.agent-skills/hamelnb/skills/jupyter-live-kernel "${CODEX_HOME:-$HOME/.codex}/skills/hamelnb"
+ln -s ~/.agent-skills/persistent_jupyter/skills/jupyter-live-kernel "${CODEX_HOME:-$HOME/.codex}/skills/persistent-jupyter"
 ```
 
 Then restart Codex.
@@ -50,9 +52,9 @@ If you prefer the bundled installer helper:
 
 ```bash
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-installer/scripts/install-skill-from-github.py" \
-  --repo hamelsmu/hamelnb \
+  --repo rwollman/persistent_jupyter \
   --path skills/jupyter-live-kernel \
-  --name hamelnb
+  --name persistent-jupyter
 ```
 
 ### Claude Code
@@ -60,24 +62,24 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-installer/scripts/inst
 Clone the repo and point Claude Code at it:
 
 ```bash
-git clone https://github.com/hamelsmu/hamelnb.git ~/.agent-skills/hamelnb
-claude --add-dir ~/.agent-skills/hamelnb
+git clone https://github.com/rwollman/persistent_jupyter.git ~/.agent-skills/persistent_jupyter
+claude --add-dir ~/.agent-skills/persistent_jupyter
 ```
 
-Already in a session? Run `/add-dir ~/.agent-skills/hamelnb`.
+Already in a session? Run `/add-dir ~/.agent-skills/persistent_jupyter`.
 
 To make the skill available in every project without `--add-dir`:
 
 ```bash
-git clone https://github.com/hamelsmu/hamelnb.git ~/.agent-skills/hamelnb
+git clone https://github.com/rwollman/persistent_jupyter.git ~/.agent-skills/persistent_jupyter
 mkdir -p ~/.claude/skills
-ln -s ~/.agent-skills/hamelnb/.claude/skills/hamelnb ~/.claude/skills/hamelnb
+ln -s ~/.agent-skills/persistent_jupyter/.claude/skills/persistent-jupyter ~/.claude/skills/persistent-jupyter
 ```
 
 If you want to use the repo as an actual Claude plugin instead of a standalone skill:
 
 ```bash
-claude --plugin-dir ~/.agent-skills/hamelnb
+claude --plugin-dir ~/.agent-skills/persistent_jupyter
 ```
 
 See the [Claude Code skills docs](https://code.claude.com/docs/en/slash-commands) for more on how skills work.
@@ -89,7 +91,7 @@ See the [Claude Code skills docs](https://code.claude.com/docs/en/slash-commands
 Use the standalone skill directly:
 
 ```text
-/hamelnb use notebooks/demo.ipynb and change price from 10 to 12, rerunning only dependent cells
+/persistent-jupyter use notebooks/demo.ipynb and change price from 10 to 12, rerunning only dependent cells
 ```
 
 After the first target is clear, keep follow-up turns conversational.
@@ -97,15 +99,15 @@ After the first target is clear, keep follow-up turns conversational.
 If you load the repo as a Claude plugin, use:
 
 ```text
-/hamelnb:live-kernel use notebooks/demo.ipynb and change price from 10 to 12, rerunning only dependent cells
+/persistent_jupyter:live-kernel use notebooks/demo.ipynb and change price from 10 to 12, rerunning only dependent cells
 ```
 
 ### Codex
 
-Mention `hamelnb` directly in your prompt:
+Mention `persistent_jupyter` directly in your prompt:
 
 ```text
-Use hamelnb on notebooks/demo.ipynb and change price from 10 to 12, rerunning only dependent cells.
+Use persistent_jupyter on notebooks/demo.ipynb and change price from 10 to 12, rerunning only dependent cells.
 ```
 
 If more than one live notebook or session matches, the agent should ask you to choose instead of guessing.

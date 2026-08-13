@@ -1,8 +1,8 @@
 {
-  "name": "hamelnb",
+  "name": "persistent_jupyter",
   "description": "Live Jupyter notebook kernel workflows for Claude Code",
   "author": {
-    "name": "hamelsmu"
+    "name": "rwollman"
   },
   "version": "1.0.0"
 }

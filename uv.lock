@@ -571,7 +571,7 @@ wheels = [
 ]
 
 [[package]]
-name = "hamelnb"
+name = "persistent-jupyter"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
